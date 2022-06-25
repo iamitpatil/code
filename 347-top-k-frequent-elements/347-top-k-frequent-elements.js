@@ -17,10 +17,8 @@ var topKFrequent = function(nums, k) {
             array[value-1].push(key):
             (array[value-1]=[key]);
     }
-    console.log(map)
     let result=[], j=array.length-1;
     while(result.length < k) {
-        console.log(array[j])
         array[j] ? result.push(...array[j]): undefined;
         j = j-1;
     }
