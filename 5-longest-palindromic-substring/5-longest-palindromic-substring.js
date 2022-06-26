@@ -7,7 +7,7 @@ var longestPalindrome = function(s) {
     let longest = "";
     let start = 0;
     let end = 0;
-    let dp = new Array(size).fill([]).map(() => new Array(size).fill(0));
+    let dp = Array.from(Array(size), () => new Array(size).fill(0));
     for(let g=0; g<size; g++) {
         for(let i=0, j=g; j<size; i++, j++) {
             if(g==0) {
