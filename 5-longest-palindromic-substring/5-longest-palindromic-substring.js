@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string}
  */
-var longestPalindrome = function(s) {
+var longestPalindrome1 = function(s) {
     let size = s.length;
     let longest = "";
     let start = 0;
@@ -27,7 +27,7 @@ var longestPalindrome = function(s) {
     }    
     return s.substring(start, end+1);
 }
-var longestPalindrome1 = function(s) {
+var longestPalindrome = function(s) {
     let size = s.length;
     let longest = "";
     for(let i=0; i < size; i++) {
