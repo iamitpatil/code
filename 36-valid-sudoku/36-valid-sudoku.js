@@ -4,10 +4,10 @@
  */
 var isValidSudoku = function(board) {
     let array = Array.from(Array(9), () => new Set());
-    let size = board.length;
-    for(let i=0; i<size; i++) {
+    // let size = board.length;
+    for(let i=0; i<9; i++) {
         let a=new Set(), b=new Set();
-        for(let j=0; j<size; j++) {
+        for(let j=0; j<9; j++) {
             if(board[i][j] !=".") {
                 //check row
                 if(a.has(board[i][j]))
