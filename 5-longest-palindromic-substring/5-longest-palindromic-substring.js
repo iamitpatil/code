@@ -2,32 +2,32 @@
  * @param {string} s
  * @return {string}
  */
-// var longestPalindrome = function(s) {
-//     let size = s.length;
-//     let longest = "";
-//     let start = 0;
-//     let end = 0;
-//     let dp = new Array(size).fill(0).map(() => new Array(size).fill(0));
-//     for(let g=0; g<size; g++) {
-//         for(let i=0, j=g; j<size; i++, j++) {
-//             if(g==0) {
-//                 dp[i][j] = 1;
-//             }
-//             else if(g==1) {
-//                 if(s[i] == s[j]) dp[i][j] = 1;
-//             }
-//             else {
-//                 if((s[i] == s[j]) && dp[i+1][j-1] == 1) dp[i][j] = 1;
-//             }
-//             if(dp[i][j]) {
-//                 start = i;
-//                 end = j;
-//             }
-//         }
-//     }    
-//     return s.substring(start, end+1);
-// }
 var longestPalindrome = function(s) {
+    let size = s.length;
+    let longest = "";
+    let start = 0;
+    let end = 0;
+    let dp = new Array(size).fill(0).map(() => new Array(size).fill(0));
+    for(let g=0; g<size; g++) {
+        for(let i=0, j=g; j<size; i++, j++) {
+            if(g==0) {
+                dp[i][j] = 1;
+            }
+            else if(g==1) {
+                if(s[i] == s[j]) dp[i][j] = 1;
+            }
+            else {
+                if((s[i] == s[j]) && dp[i+1][j-1] == 1) dp[i][j] = 1;
+            }
+            if(dp[i][j]) {
+                start = i;
+                end = j;
+            }
+        }
+    }    
+    return s.substring(start, end+1);
+}
+var longestPalindrome1 = function(s) {
     let size = s.length;
     let longest = "";
     for(let i=0; i < size; i++) {
