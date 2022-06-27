@@ -9,13 +9,10 @@ var longestConsecutive = function(nums) {
         map.add(nums[i]);
     }
     for(let i=0; i<nums.length; i++) {
+        let strlen = 0;
         if(!map.has(nums[i]-1)) {
-            let strlen = 1;
-            let num = nums[i];
-            while(map.has(num+1)) {
+            while(map.has(nums[i]+strlen)) {
                 strlen++;
-                num++;
-                map.delete(num);
             }
             longest = strlen > longest ? strlen: longest;
         }
