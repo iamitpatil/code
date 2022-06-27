@@ -8,17 +8,17 @@ var isPalindrome = function(s) {
     let start = 0;
     let end = s.length-1;
     while(start<=end) {
-        let startCharAscii = s[start].toLowerCase();
-        let endCharAscii = s[end].toLowerCase();
-        if(!set.has(startCharAscii)) {
+        let startChar = s[start].toLowerCase();
+        let endChar = s[end].toLowerCase();
+        if(!set.has(startChar)) {
             start++;
             continue;
         }
-        if(!set.has(endCharAscii)) {
+        if(!set.has(endChar)) {
             end--;
             continue;
         }
-        if(startCharAscii != endCharAscii)
+        if(startChar != endChar)
             return false;
         start++;
         end--;
