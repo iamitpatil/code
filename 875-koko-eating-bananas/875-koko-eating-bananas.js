@@ -5,7 +5,7 @@
  */
 var minEatingSpeed = function(piles, h) {
     let kr = 0, kl = 1, k=Number.POSITIVE_INFINITY;
-    piles.forEach((len) => kr = Math.max(kr, len));
+    piles.forEach((len) => (kr = Math.max(kr, len)) && (kl = Math.min(kl, len)));
     let isPossible = (k) => {
         return h >= piles.map((item) => Math.ceil(item/k)).reduce((sum, a) => sum+a, 0);
     }
