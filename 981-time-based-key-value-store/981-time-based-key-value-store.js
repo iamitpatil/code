@@ -23,7 +23,7 @@ TimeMap.prototype.get = function(key, timestamp) {
     let res = "";
     let values = this.map.get(key) || [], r = values.length-1, l = 0, mid;
     while(r>=l) {
-        mid = l + ~~((r-l)/2);
+        mid = l + Math.floor((r-l)/2);
         if(values[mid][1] <= timestamp) res = values[mid][0];
         if(values[mid][1] <= timestamp) l = mid + 1; else r = mid - 1;
     }
