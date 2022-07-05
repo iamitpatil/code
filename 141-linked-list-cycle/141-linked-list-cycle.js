@@ -11,7 +11,7 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    let list = head, fp = head, sp = head;
+    let fp = head, sp = head;
     while(fp != null) {
         fp = fp.next;
         if(fp == null) return false;
