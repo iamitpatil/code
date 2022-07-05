@@ -11,7 +11,7 @@ var TimeMap = function() {
  */
 TimeMap.prototype.set = function(key, value, timestamp) {
     if(!this.map.has(key)) this.map.set(key, []);
-    this.map.get(key).push([value, timestamp])
+    this.map.get(key).push([value, timestamp]);
 };
 
 /** 
