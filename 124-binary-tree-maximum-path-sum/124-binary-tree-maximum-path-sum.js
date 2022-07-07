@@ -23,5 +23,7 @@ var maxPathSum = function(root) {
                 node.val);
         return Math.max(left+node.val, right+node.val, node.val);
     };
-    return Math.max(sum(root), total);
+    sum(root);
+    return total;
+    //Math.max(sum(root), total);
 };
