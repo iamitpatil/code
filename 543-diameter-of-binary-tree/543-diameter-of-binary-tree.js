@@ -17,9 +17,8 @@ var diameterOfBinaryTree = function(root) {
         if(root==null) return -1;
         let ld = traverse(root.left);
         let rd = traverse(root.right);
-        let d = 2+ld+rd;
         let h = 1 + Math.max(ld,rd);
-        max = Math.max(max, d);
+        max = Math.max(max, 2+ld+rd);
         return h;
     }
     traverse(root);
