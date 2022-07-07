@@ -27,6 +27,5 @@ var goodNodes = function(root) {
             maxStack.push(Math.max(maxValue, node.left.val));
         }
     }
-    console.log(nodes)
     return nodes.length;
 };
