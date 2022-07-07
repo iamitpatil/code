@@ -25,12 +25,13 @@ var serialize = function(root) {
  */
 var deserialize = function(data) {
     let tree = data.split(",");
+    let index = 0;
     let generate = (tree) => {
-        if(tree[0] == "N") return null;
-        let node = new TreeNode(parseInt(tree[0]))
-        tree.shift();
+        if(tree[index] == "N") return null;
+        let node = new TreeNode(parseInt(tree[index]))
+        index++;
         node.left = generate(tree);
-        tree.shift();
+        index++;
         node.right = generate(tree);
         return node;
     }
