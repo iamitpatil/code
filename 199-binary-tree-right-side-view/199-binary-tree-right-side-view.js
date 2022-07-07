@@ -14,7 +14,7 @@ var rightSideView = function(root) {
     let level = 0, array=[];
     let traverse = (root) => {
         if(root == null) return;
-        if(array.length == level) array.push(root.val);
+        if(array.length-1 < level) array.push(root.val);
         else array[level] = root.val;
         level++;
         traverse(root.left);
