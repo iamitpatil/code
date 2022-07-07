@@ -20,7 +20,6 @@ var isValidBST = function(root) {
         if(lastVal >= stack.at(-1).val) return false;
         node = stack.pop();
         lastVal = node.val;
-        
         node = node.right;
     }
     return true;
