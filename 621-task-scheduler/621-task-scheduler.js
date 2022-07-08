@@ -36,7 +36,6 @@ var leastInterval = function(tasks, n) {
     chars = chars.filter((i)=> i != 0 );
     for(let i=Math.floor(chars.length/2)-1; i>=0; i--) chars=heapify(chars,i);
     let time=0;
-    console.log(chars);
     while(queue.length || chars.length) {
         time++;
         if(chars.length) {
