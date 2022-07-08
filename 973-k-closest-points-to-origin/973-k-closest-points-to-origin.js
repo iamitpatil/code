@@ -4,21 +4,18 @@
  * @return {number[][]}
  */
 var kClosest = function(points, k) {
-    let map = new Map();
-    let heap = new MinHeap([]);
     for(let i=0; i<points.length; i++) {
-        let dist = points[i][0]*points[i][0] + points[i][1]*points[i][1];
-        if(!map.has(dist)) map.set(dist, [points[i]]);
-        else map.get(dist).push(points[i]);
-        heap.push(dist);
+        points[i] = [ 
+            points[i][0]*points[i][0] + points[i][1]*points[i][1],
+            points[i][0], 
+            points[i][1]
+        ];
     }
-    let found = [];
+    let heap = new MinHeap(points), found=[], pt;
     while(k>0) {
-        let d = heap.pop();
-        let pts = map.get(d);
-        found.push(...pts);
-        map.delete(d);
-        k=k-pts.length;
+        pt = heap.pop();
+        found.push([pt[1], pt[2]]);
+        k--;
     }
     return found;
 };
@@ -35,13 +32,13 @@ MinHeap.prototype.buildHeap = function() {
 
 MinHeap.prototype.heapifyDown = function(i) {
     let root=i, left = 2*i+1, right = 2*i+2;
-    if(left<this.heap.length && this.heap[root] > this.heap[left]) root = left;
-    if(right<this.heap.length && this.heap[root] > this.heap[right]) root = right;
+    if(left<this.heap.length && this.heap[root][0] > this.heap[left][0]) root = left;
+    if(right<this.heap.length && this.heap[root][0] > this.heap[right][0]) root = right;
     if(i!=root) {
         //swap
-        this.heap[root] = this.heap[i]^this.heap[root];
-        this.heap[i] = this.heap[i]^this.heap[root];
-        this.heap[root] = this.heap[i]^this.heap[root]
+        let temp = this.heap[root];
+        this.heap[root] = this.heap[i];
+        this.heap[i] = temp;
         //heapify new root
         this.heapifyDown(root);
     }
@@ -49,11 +46,11 @@ MinHeap.prototype.heapifyDown = function(i) {
 
 MinHeap.prototype.heapifyUp = function(i) {
     let root=i, parent=Math.floor((i-1)/2);
-    if(parent >=0 && this.heap[parent] > this.heap[root]) {
+    if(parent >=0 && this.heap[parent][0] > this.heap[root][0]) {
         //swap
-        this.heap[root] = this.heap[parent]^this.heap[root];
-        this.heap[parent] = this.heap[parent]^this.heap[root];
-        this.heap[root] = this.heap[parent]^this.heap[root]
+        let temp = this.heap[root];
+        this.heap[root] = this.heap[parent];
+        this.heap[parent] = temp;
         //heapify up parent
         this.heapifyUp(parent);
     }
