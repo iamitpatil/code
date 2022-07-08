@@ -41,8 +41,8 @@ Trie.prototype.search = function(word) {
 Trie.prototype.startsWith = function(prefix) {
     let root = this.root;
     for(let i=0; i<prefix.length; i++) {
-        if(root.childs.has(prefix[i])) root = root.childs.get(prefix[i]);
-        else return false;
+        if(!root.childs.has(prefix[i])) return false;
+        root = root.childs.get(prefix[i]);
     }
     return true;
 };
