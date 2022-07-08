@@ -7,7 +7,6 @@ var lastStoneWeight = function(stones) {
     while(items.heap.length>1) {
         let x = items.pop();
         let y = items.pop();
-        console.log(items);
         if(x!=y) items.push(Math.max(x,y)-Math.min(x,y));
     }
     return items.heap.length ? items.pop(): 0;
