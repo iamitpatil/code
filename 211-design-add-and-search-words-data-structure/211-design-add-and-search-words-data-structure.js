@@ -33,7 +33,6 @@ WordDictionary.prototype.search = function(word) {
                 if(i == word.length-1 && value.endOfWord) return value.endOfWord;
                 if(searchTree(value, i+1)) return true;
             }
-            i--;
         } 
         else {
             if(!root.childs.has(word[i])) return false;
