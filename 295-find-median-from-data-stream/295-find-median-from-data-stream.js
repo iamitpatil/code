@@ -40,6 +40,9 @@ MinHeap.prototype.push = function(val) {
 MinHeap.prototype.top = function() {
     return this.data[0];
 }
+MinHeap.prototype.len = function() {
+    return this.data.length;
+}
 
 var MaxHeap = function () {
     this.data = [];
@@ -83,7 +86,9 @@ MaxHeap.prototype.push = function(val) {
 MaxHeap.prototype.top = function() {
     return this.data[0];
 }
-
+MaxHeap.prototype.len = function() {
+    return this.data.length;
+}
 
 var MedianFinder = function() {
     this.count = 0;
@@ -96,8 +101,8 @@ var MedianFinder = function() {
  * @return {void}
  */
 MedianFinder.prototype.addNum = function(num) {
-    let minL = this.minHeap.data.length;
-    let maxL = this.maxHeap.data.length;
+    let minL = this.minHeap.len();
+    let maxL = this.maxHeap.len();
     let minTop = minL > 0 ? this.minHeap.top(): Number.POSITIVE_INFINITY;
     let maxTop = maxL > 0 ? this.maxHeap.top(): Number.NEGATIVE_INFINITY;
     if(num>=minTop) {
@@ -110,7 +115,7 @@ MedianFinder.prototype.addNum = function(num) {
         if(maxL>minL) this.minHeap.push(num);
         else this.maxHeap.push(num);
     }
-    while(Math.max(this.maxHeap.data.length, this.minHeap.data.length)-Math.min(this.maxHeap.data.length, this.minHeap.data.length)>=2) {
+    while(Math.max(this.maxHeap.len(), this.minHeap.len())-Math.min(this.maxHeap.len(), this.minHeap.len())>=2) {
         if(this.maxHeap.data.length<this.minHeap.data.length) {
             this.maxHeap.push(this.minHeap.pop());
         } else {
