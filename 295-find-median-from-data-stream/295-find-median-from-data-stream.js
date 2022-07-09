@@ -126,15 +126,6 @@ MedianFinder.prototype.addNum = function(num) {
             maxTop=this.maxHeap.top();
         }
     }
-    if(maxTop>minTop) {
-        this.maxHeap.pop();
-        this.minHeap.pop();
-        this.maxHeap.push(minTop);
-        this.minHeap.push(maxTop);
-        maxTop = maxTop^minTop;
-        minTop = maxTop^minTop;
-        maxTop = maxTop^minTop;
-    }
     while(Math.max(this.maxHeap.data.length, this.minHeap.data.length)-Math.min(this.maxHeap.data.length, this.minHeap.data.length)>=2) {
         if(this.maxHeap.data.length<this.minHeap.data.length) {
             this.maxHeap.push(this.minHeap.pop());
