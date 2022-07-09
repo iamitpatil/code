@@ -116,7 +116,7 @@ MedianFinder.prototype.addNum = function(num) {
         else this.maxHeap.push(num);
     }
     while(Math.max(this.maxHeap.len(), this.minHeap.len())-Math.min(this.maxHeap.len(), this.minHeap.len())>=2) {
-        if(this.maxHeap.data.length<this.minHeap.data.length) {
+        if(this.maxHeap.len()<this.minHeap.len()) {
             this.maxHeap.push(this.minHeap.pop());
         } else {
             this.minHeap.push(this.maxHeap.pop());
