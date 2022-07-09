@@ -100,15 +100,15 @@ MedianFinder.prototype.addNum = function(num) {
     let maxL = this.maxHeap.data.length;
     let minTop = minL > 0 ? this.minHeap.top(): Number.POSITIVE_INFINITY;
     let maxTop = maxL > 0 ? this.maxHeap.top(): Number.NEGATIVE_INFINITY;
-    if(maxTop>minTop) {
-        this.maxHeap.pop();
-        this.minHeap.pop();
-        this.maxHeap.push(minTop);
-        this.minHeap.push(maxTop);
-        maxTop = maxTop^minTop;
-        minTop = maxTop^minTop;
-        maxTop = maxTop^minTop;
-    }
+    // if(maxTop>minTop) {
+    //     this.maxHeap.pop();
+    //     this.minHeap.pop();
+    //     this.maxHeap.push(minTop);
+    //     this.minHeap.push(maxTop);
+    //     maxTop = maxTop^minTop;
+    //     minTop = maxTop^minTop;
+    //     maxTop = maxTop^minTop;
+    // }
     if(num>=minTop) {
         this.minHeap.push(num);
         minTop=this.minHeap.top();
