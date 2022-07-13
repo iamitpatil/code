@@ -3,12 +3,14 @@
  * @return {number}
  */
 var climbStairs = function(n) {
-    let dp = new Array(n).fill(0), i=n-1;
+    let i=n-3, one=1, two=2, curr=0;
+    if(n==1) return one;
+    else if(n==2) return two;
     while(i>=0) {
-        if(i==n-1) dp[i] = 1;
-        else if(n>=2 && i==n-2) dp[i] = 2;
-        else dp[i] = dp[i+1] + (n>=2 ? dp[i+2]: 0);
+        curr = one + two;
+        one = two;
+        two = curr;
         i--;
     }
-    return dp[0];
+    return two;
 };
