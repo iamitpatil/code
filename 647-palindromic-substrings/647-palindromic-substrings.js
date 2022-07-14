@@ -22,6 +22,5 @@ var countSubstrings = function(s) {
             }
         }
     }
-    console.log(dp);
     return count;
 };
