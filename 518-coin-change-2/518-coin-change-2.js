@@ -4,13 +4,18 @@
  * @return {number}
  */
 var change = function(amount, coins) {
-    let dp = new Array(coins.length+1).fill(0).map(() => new Array(amount+1).fill(0));
-    for(let amt=1; amt<amount+1; amt++) {
+    let dp = new Array(coins.length).fill(0).map(() => new Array(amount+1).fill(0));
+    for(let amt=0; amt<amount+1; amt++) {
         for(let i=0; i<coins.length; i++) {
-            dp[i+1][amt] = (amt%coins[i] == 0 ? 1: 0);
-            for(let k=0; k<Math.ceil(amt/coins[i]); k++) 
-                dp[i+1][amt] += dp[i][amt-k*coins[i]];
+            if(amt==0) {
+                dp[i][amt] = 1;
+                continue;
+            }
+            if(amt-coins[i]>=0)
+                dp[i][amt] += dp[i][amt-coins[i]]; 
+            if(i-1>=0)
+                dp[i][amt] += dp[i-1][amt];
         }
     }
-    return amount>0 ? dp[coins.length][amount]: 1;
+    return dp[coins.length-1][amount];
 };
