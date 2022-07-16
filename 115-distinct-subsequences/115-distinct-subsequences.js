@@ -6,7 +6,7 @@
 var numDistinct = function(s, t) {
     let dp = new Map();
     let dfs = (i, j) => {
-        if(i>=s.length && j>=t.length) return 1;
+        if(j>=t.length) return 1;
         else if(i>=s.length) return 0;
         if(dp.has(`${i}.${j}`)) return dp.get(`${i}.${j}`);
         let res;
