@@ -11,12 +11,11 @@ var numDistinct = function(s, t) {
         if(dp.has(`${i}.${j}`)) return dp.get(`${i}.${j}`);
         let res;
         if(s[i]==t[j]) {
-            res = dfs(i+1, j+1) + dfs(i+1, j);
+            dp.set(`${i}.${j}`, dfs(i+1, j+1) + dfs(i+1, j));
         } else {
-            res = dfs(i+1, j);
+            dp.set(`${i}.${j}`, dfs(i+1, j));
         }
-        dp.set(`${i}.${j}`, res);
-        return res;
+        return dp.get(`${i}.${j}`);
     };
     return dfs(0, 0);
 };
