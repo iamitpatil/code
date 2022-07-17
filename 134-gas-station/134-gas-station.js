@@ -3,7 +3,7 @@
  * @param {number[]} cost
  * @return {number}
  */
-
+//O(n) solution
 var canCompleteCircuit = function(gas, cost) {
     let netGas = 0, total=gas.reduce((a,b) => a+b) - cost.reduce((a,b)=> a+b), res=0;
     if(total<0) return -1;
