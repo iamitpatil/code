@@ -5,7 +5,7 @@
 // O(n^3) solution still faster
 var maxPoints = function(points) {
     let max = 1;
-    for(let i=0; i< points.length; i++) {
+    for(let i=0; i<points.length; i++) {
         for(let j=i+1; j<points.length; j++) {
             let pts = 2, dij= points[i][0]*points[j][1] - points[j][0] * points[i][1];
             for(let k = j+1; k< points.length; k++) {
