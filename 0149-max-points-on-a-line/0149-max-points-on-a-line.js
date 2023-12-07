@@ -2,7 +2,7 @@
  * @param {number[][]} points
  * @return {number}
  */
-// O(n^3) solution
+// O(n^3) solution still faster
 var maxPoints = function(points) {
     let max = 1;
     for(let i=0; i< points.length; i++) {
