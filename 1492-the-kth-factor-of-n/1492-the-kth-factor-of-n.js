@@ -11,7 +11,6 @@ var kthFactor = function(n, k) {
             if(i != n/i) factors[1].push(n/i);
         }
     }
-    console.log(factors);
     return k <= (factors[0].length + factors[1].length) ?
         (k<=factors[0].length ? factors[0][k-1]: 
          factors[1][factors[1].length - (k - factors[0].length)])
