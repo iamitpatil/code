@@ -5,7 +5,6 @@
 var isValid = function(s) {
     let array = [];
     for(let i=0; i<s.length; i++) {
-        console.log("helo")
         if(s[i] === '(' || s[i] === '{' || s[i] === '[') {
             array.push(s[i]);
         } else if(s[i] === ')' || s[i] === '}' || s[i] === ']') {
