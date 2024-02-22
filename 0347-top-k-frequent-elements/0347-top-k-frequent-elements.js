@@ -3,6 +3,7 @@
  * @param {number} k
  * @return {number[]}
  */
+
 var topKFrequent = function(nums, k) {
     let map = new Map();
     for(let i=0; i<nums.length; i++) {
@@ -12,6 +13,7 @@ var topKFrequent = function(nums, k) {
     }
     
     let array = new Array(nums.length);
+    
     for(const [key, value] of map.entries()) {
         array[value-1] ?
             array[value-1].push(key):
