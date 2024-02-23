@@ -18,7 +18,7 @@ var isPalindrome = function(s) {
             end--;
             continue;
         }
-        if(startChar != endChar)
+        if(startChar !== endChar)
             return false;
         start++;
         end--;

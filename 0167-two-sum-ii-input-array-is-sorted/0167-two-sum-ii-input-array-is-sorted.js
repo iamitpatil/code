@@ -15,7 +15,7 @@ var twoSum = function(numbers, target) {
             start++;
             continue;
         }
-        if(numbers[end] + numbers[start] == target) {
+        if(numbers[end] + numbers[start] === target) {
             return [start+1, end+1];
         }
     }

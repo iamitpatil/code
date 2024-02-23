@@ -12,11 +12,11 @@ var evalRPN = function(tokens) {
     for(let i=0; i<tokens.length; i++) {
         if(isNaN(tokens[i])) {
             let no2 = stack.pop(), no1=stack.pop();
-            if(tokens[i] == "*") {
+            if(tokens[i] === "*") {
                 stack.push(multiply(no1, no2));
-            } else if(tokens[i] == "/") {
+            } else if(tokens[i] === "/") {
                 stack.push(roundOff(divide(no1, no2)));
-            } else if(tokens[i] == "+") {
+            } else if(tokens[i] === "+") {
                 stack.push(add(no1, no2));
             } else {
                 stack.push(subtract(no1, no2));

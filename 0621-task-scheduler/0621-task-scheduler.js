@@ -34,7 +34,7 @@ var leastInterval = function(tasks, n) {
     for(let i=0; i<tasks.length; i++) {
         chars[tasks[i].charCodeAt(0)-"A".charCodeAt(0)]++;
     }
-    chars = chars.filter((i)=> i != 0 );
+    chars = chars.filter((i)=> i !== 0 );
     for(let i=Math.floor(chars.length/2)-1; i>=0; i--) chars=heapify(chars,i);
     let maxfreq = chars[0], idleSlots = (maxfreq-1)*n, curr;
     if(chars.length>1) {

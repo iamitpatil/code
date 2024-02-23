@@ -12,9 +12,9 @@ var minWindow = function(s, t) {
     let req = need.size;
     for(let i=0; i<s.length; i++) {        
         have.set(s[i], have.get(s[i]) ? have.get(s[i]) + 1 : 1);
-        if(need.has(s[i]) && need.get(s[i]) == have.get(s[i]))
+        if(need.has(s[i]) && need.get(s[i]) === have.get(s[i]))
             matched++;
-        while(matched == req) {
+        while(matched === req) {
             if((i-l+1) < length) {
                 length = (i-l+1);
                 resIndex = l;
@@ -27,5 +27,5 @@ var minWindow = function(s, t) {
             l++;
         }
     }
-    return (resIndex != -1) ? s.substr(resIndex, length): "";
+    return (resIndex !== -1) ? s.substr(resIndex, length): "";
 };

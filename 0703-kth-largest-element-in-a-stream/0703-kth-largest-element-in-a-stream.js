@@ -33,7 +33,7 @@ KthLargest.prototype.heapifyDown = function(i) {
         root = left;
     if(n > right && this.nums[root] > this.nums[right])
         root = right;
-    if(root != i) {
+    if(root !== i) {
         //swap
         this.nums[i] = this.nums[i]^this.nums[root];
         this.nums[root] = this.nums[i]^this.nums[root];
