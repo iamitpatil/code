@@ -24,6 +24,7 @@ var findOrder = function(numCourses, prerequisites) {
             }
             cycle.delete(i);
         }
+        reqMap.set(i, []);
         visited.add(i);
         output.push(i);
         return true;
