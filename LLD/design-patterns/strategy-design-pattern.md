@@ -1,9 +1,11 @@
+### WIP
+
 # Design Patterns
 
 
 ### Strategy Design Pattern
 
-Let us understand strategy design pattern using an example below
+Let us understand strategy design pattern using an example below:
 
 ```mermaid
 ---

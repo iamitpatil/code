@@ -1,3 +1,5 @@
+### WIP
+
 # Design Patterns
 
 
@@ -6,13 +8,11 @@
 In Observer design pattern we have one observable and many observers. 
 Any state change in Observable state will update all observers about it.
 
-Let us understand observer design pattern using an example below
+Let us understand observer design pattern using an example below:
 
 ```mermaid
 classDiagram
-    WeatherStationInterface "1" --> "*" ObserverInterface
-    <<interface>> WeatherStationInterface
-    <<interface>> ObserverInterface
+    WeatherStation~WeatherStationInterface~ "1" --> "*" ObserverInterface
     WeatherStationInterface: +add(Observer obj)
     WeatherStationInterface: +remove(Observer obj)
     WeatherStationInterface: +notify()
@@ -21,6 +21,8 @@ classDiagram
     WeatherStation~WeatherStationInterface~ --|> WeatherStationInterface
     ObserverClass~ObserverInterface~ --|> ObserverInterface
     ObserverClass --> WeatherStation~WeatherStationInterface~
+    <<interface>> WeatherStationInterface
+    <<interface>> ObserverInterface
     class WeatherStation~WeatherStationInterface~ {
         List<ObservableClass> observerList
         int data
