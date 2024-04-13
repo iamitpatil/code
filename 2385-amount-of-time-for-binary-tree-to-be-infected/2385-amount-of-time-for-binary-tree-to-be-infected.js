@@ -34,3 +34,23 @@ var amountOfTime = function(root, start) {
     recurse(root);
     return max;
 };
+
+let convertLevelOrderArrToTree = (arr) => {
+    let queue = [arr.length ? new Node(arr[0]) : null];
+    let level = [];
+    let head = queue[0], start = 1;
+    while (queue.length) {
+        while (queue.length) {
+            let node = queue.shift();
+            node.left = start < arr.length && arr[start] != -1 ? new Node(arr[start]) : null; 
+            start++;
+            node.right = start < arr.length && arr[start] != -1 ? new Node(arr[start]) : null; 
+            start++;
+            node.left != null ? level.push(node.left) : null;
+            node.right != null ? level.push(node.right) : null;
+        }
+        queue = [...level];
+        level = [];
+    }
+    return head;
+}
