@@ -1,7 +1,5 @@
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
-        j = 0
-        i = 0
         cache = {}
         def dfs(x, y):
             if (x, y) in cache:
